@@ -1,0 +1,148 @@
+.legal-page {
+  min-height: 100vh;
+  background-color: #f7fafc;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Header */
+.legal-header {
+  padding: 2rem;
+  background-color: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.legal-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #2d3748;
+}
+
+.logo-image {
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-highlight {
+  color: #4299e1;
+}
+
+.legal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+}
+
+/* Content */
+.legal-content {
+  padding: 2rem;
+  color: #4a5568;
+}
+
+.legal-updated {
+  color: #718096;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.legal-section {
+  margin-bottom: 2.5rem;
+}
+
+.legal-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.legal-section h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.legal-section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.legal-section ul {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.legal-section li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.legal-footer {
+  padding: 1.5rem 2rem;
+  background-color: #f7fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-link, .privacy-link, .terms-link {
+  color: #4299e1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover, .privacy-link:hover, .terms-link:hover {
+  color: #2b6cb0;
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .legal-container {
+    border-radius: 0.5rem;
+  }
+  
+  .legal-header,
+  .legal-content,
+  .legal-footer {
+    padding: 1.5rem;
+  }
+  
+  .legal-title {
+    font-size: 1.5rem;
+  }
+  
+  .legal-section h2 {
+    font-size: 1.125rem;
+  }
+  
+  .legal-section h3 {
+    font-size: 1rem;
+  }
+}
