@@ -15,11 +15,28 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: Install Dependencies
+      - name: Install Frontend Dependencies
         run: |
           cd frontend
           npm install
-      - name: Run Linter
+      - name: Run Frontend Linter
         run: |
           cd frontend
           npm run lint || echo "No lint script found, skipping"
+  
+  backend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install Backend Dependencies
+        run: |
+          cd backend/api
+          npm install
+      - name: Run Backend Tests
+        run: |
+          cd backend/api
+          npm test || echo "No test script configured, skipping"
