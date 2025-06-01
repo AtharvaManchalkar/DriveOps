@@ -25,19 +25,47 @@ jobs:
           cd Car-Management-main/frontend
           npm run build
           
+      - name: Create Vercel configuration
+        run: |
+          cd Car-Management-main
+          cat > vercel.json << EOF
+          {
+            "version": 2,
+            "name": "driveops",
+            "buildCommand": "cd frontend && npm install && npm run build",
+            "outputDirectory": "frontend/build",
+            "routes": [
+              {
+                "src": "/api/(.*)",
+                "dest": "api/server.js"
+              },
+              {
+                "src": "/static/(.*)",
+                "dest": "frontend/build/static/\$1"
+              },
+              {
+                "src": "/(.*\\.(js|css|ico|png|jpg|svg|json))",
+                "dest": "frontend/build/\$1"
+              },
+              {
+                "src": "/(.*)",
+                "dest": "frontend/build/index.html"
+              }
+            ]
+          }
+          EOF
+          
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
         
-      # Use direct Vercel CLI commands with --yes flag
       - name: Deploy to Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          cd Car-Management-main
-          vercel --token $VERCEL_TOKEN --yes
-          vercel --prod --token $VERCEL_TOKEN --yes
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./Car-Management-main
+          vercel-args: '--prod'
           
   deploy-docker:
     runs-on: ubuntu-latest
