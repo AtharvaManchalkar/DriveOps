@@ -17,9 +17,9 @@ jobs:
           node-version: '16'
       - name: Install Dependencies
         run: |
-          cd frontend
+          cd Car-Management-main/frontend
           npm install
       - name: Run Linter
         run: |
-          cd frontend
+          cd Car-Management-main/frontend
           npm run lint || echo "No lint script found, skipping"
