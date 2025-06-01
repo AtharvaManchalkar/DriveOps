@@ -162,7 +162,7 @@ const Login = () => {
                 <div className="form-group">
                   <label htmlFor="email">Email Address</label>
                   <div className="input-with-icon">
-                    <span className="input-icon">📧</span>
+                    <span className="input-icon"></span>
                     <input
                       id="email"
                       type="email"
@@ -177,7 +177,7 @@ const Login = () => {
                 <div className="form-group">
                   <label htmlFor="password">Password</label>
                   <div className="input-with-icon">
-                    <span className="input-icon">🔒</span>
+                    <span className="input-icon"></span>
                     <input
                       id="password"
                       type="password"
@@ -266,7 +266,7 @@ const Login = () => {
                 <div className="form-group">
                   <label htmlFor="resetEmail">Email Address</label>
                   <div className="input-with-icon">
-                    <span className="input-icon">📧</span>
+                    <span className="input-icon"></span>
                     <input
                       id="resetEmail"
                       type="email"
