@@ -25,38 +25,6 @@ jobs:
           cd Car-Management-main/frontend
           npm run build
           
-      - name: Create Vercel configuration
-        run: |
-          cd Car-Management-main
-          cat > vercel.json << 'EOF'
-          {
-            "version": 2,
-            "name": "driveops",
-            "builds": [
-              {
-                "src": "frontend/package.json",
-                "use": "@vercel/static-build",
-                "config": {
-                  "distDir": "build"
-                }
-              }
-            ],
-            "routes": [
-              {
-                "src": "/static/(.*)",
-                "dest": "/static/$1"
-              },
-              {
-                "src": "/(.*)",
-                "dest": "/index.html"
-              }
-            ]
-          }
-          EOF
-          
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-        
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
