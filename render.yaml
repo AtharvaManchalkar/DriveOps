@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: driveops-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    rootDir: Car-Management-main/backend/api
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: PORT
+        value: 5000
+      - key: FRONTEND_URL
+        value: https://driveops-frontend.onrender.com
+
+  - type: web
+    name: driveops-frontend
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    rootDir: Car-Management-main/frontend
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://driveops-backend.onrender.com
+      - key: NODE_VERSION
+        value: 16
