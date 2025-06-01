@@ -62,7 +62,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Build Frontend Docker Image
         run: |
-          docker build -t driveops-frontend:latest ./frontend
+          docker build -t driveops-frontend:latest ./Car-Management-main/frontend
       - name: Build Backend Docker Image
         run: |
-          docker build -t driveops-backend:latest ./backend/api
+          docker build -t driveops-backend:latest ./Car-Management-main/backend/api
