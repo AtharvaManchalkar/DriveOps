@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000', 
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000', 
 });
 
 API.interceptors.request.use(
@@ -22,11 +22,10 @@ API.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem('token');
-      window.location.href = '/login'; // Redirect to login page
+      window.location.href = '/login';
     }
     return Promise.reject(error);
   }
 );
 
 export default API;
-
