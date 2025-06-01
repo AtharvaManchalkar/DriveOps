@@ -155,7 +155,7 @@ jobs:
           cd Car-Management-main/frontend
           npm run build
       - name: Archive Production Build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: frontend-build
           path: Car-Management-main/frontend/build
@@ -195,7 +195,7 @@ jobs:
           }
           EOF
       - name: Download frontend build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: frontend-build
           path: Car-Management-main/frontend/docker-context
