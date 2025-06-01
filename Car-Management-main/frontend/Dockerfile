@@ -1,8 +1,17 @@
 FROM node:16-alpine as build
 WORKDIR /app
+
+# Copy package files
 COPY package*.json ./
-RUN npm ci
+
+# Install dependencies using npm install instead of npm ci
+# This will handle any sync issues between package.json and package-lock.json
+RUN npm install
+
+# Copy source code
 COPY . .
+
+# Build the application
 RUN npm run build
 
 FROM nginx:alpine

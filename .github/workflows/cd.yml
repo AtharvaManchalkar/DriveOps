@@ -1,3 +1,4 @@
+va-manchalkar/vscode/DriveOps/.github/workflows/cd.yml
 name: Deploy to Render
 
 on:
@@ -18,7 +19,8 @@ jobs:
       - name: Install Frontend Dependencies
         run: |
           cd Car-Management-main/frontend
-          npm ci
+          rm -f package-lock.json
+          npm install
           
       - name: Build Frontend
         run: |
